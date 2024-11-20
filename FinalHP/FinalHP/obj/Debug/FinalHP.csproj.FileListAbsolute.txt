@@ -8,3 +8,16 @@ C:\Users\juanj\OneDrive\Escritorio\UNIVERSIDAD\2024-2\Herramientas de programaci
 C:\Users\juanj\OneDrive\Escritorio\UNIVERSIDAD\2024-2\Herramientas de programacion 1\FinalHP\FinalHP\FinalHP\obj\Debug\FinalHP.exe
 C:\Users\juanj\OneDrive\Escritorio\UNIVERSIDAD\2024-2\Herramientas de programacion 1\FinalHP\FinalHP\FinalHP\obj\Debug\FinalHP.pdb
 C:\Users\juanj\OneDrive\Escritorio\UNIVERSIDAD\2024-2\Herramientas de programacion 1\FinalHP\FinalHP\FinalHP\obj\Debug\FinalHP.Form1.resources
+C:\Users\juanj\OneDrive\Escritorio\UNIVERSIDAD\2024-2\Herramientas de programacion 1\FinalHP\Nueva carpeta\FinalHP\FinalHP\FinalHP\FinalHP\bin\Debug\FinalHP.exe.config
+C:\Users\juanj\OneDrive\Escritorio\UNIVERSIDAD\2024-2\Herramientas de programacion 1\FinalHP\Nueva carpeta\FinalHP\FinalHP\FinalHP\FinalHP\bin\Debug\FinalHP.exe
+C:\Users\juanj\OneDrive\Escritorio\UNIVERSIDAD\2024-2\Herramientas de programacion 1\FinalHP\Nueva carpeta\FinalHP\FinalHP\FinalHP\FinalHP\bin\Debug\FinalHP.pdb
+C:\Users\juanj\OneDrive\Escritorio\UNIVERSIDAD\2024-2\Herramientas de programacion 1\FinalHP\Nueva carpeta\FinalHP\FinalHP\FinalHP\FinalHP\obj\Debug\FinalHP.csproj.AssemblyReference.cache
+C:\Users\juanj\OneDrive\Escritorio\UNIVERSIDAD\2024-2\Herramientas de programacion 1\FinalHP\Nueva carpeta\FinalHP\FinalHP\FinalHP\FinalHP\obj\Debug\FinalHP.Form1.resources
+C:\Users\juanj\OneDrive\Escritorio\UNIVERSIDAD\2024-2\Herramientas de programacion 1\FinalHP\Nueva carpeta\FinalHP\FinalHP\FinalHP\FinalHP\obj\Debug\FinalHP.Properties.Resources.resources
+C:\Users\juanj\OneDrive\Escritorio\UNIVERSIDAD\2024-2\Herramientas de programacion 1\FinalHP\Nueva carpeta\FinalHP\FinalHP\FinalHP\FinalHP\obj\Debug\FinalHP.csproj.GenerateResource.cache
+C:\Users\juanj\OneDrive\Escritorio\UNIVERSIDAD\2024-2\Herramientas de programacion 1\FinalHP\Nueva carpeta\FinalHP\FinalHP\FinalHP\FinalHP\obj\Debug\FinalHP.csproj.CoreCompileInputs.cache
+C:\Users\juanj\OneDrive\Escritorio\UNIVERSIDAD\2024-2\Herramientas de programacion 1\FinalHP\Nueva carpeta\FinalHP\FinalHP\FinalHP\FinalHP\obj\Debug\FinalHP.exe
+C:\Users\juanj\OneDrive\Escritorio\UNIVERSIDAD\2024-2\Herramientas de programacion 1\FinalHP\Nueva carpeta\FinalHP\FinalHP\FinalHP\FinalHP\obj\Debug\FinalHP.pdb
+C:\Users\juanj\OneDrive\Escritorio\UNIVERSIDAD\2024-2\Herramientas de programacion 1\FinalHP\Nueva carpeta\FinalHP\FinalHP\FinalHP\FinalHP\obj\Debug\FinalHP.FormLibros.resources
+C:\Users\juanj\OneDrive\Escritorio\UNIVERSIDAD\2024-2\Herramientas de programacion 1\FinalHP\Nueva carpeta\FinalHP\FinalHP\FinalHP\FinalHP\obj\Debug\FinalHP.FormMovimientos.resources
+C:\Users\juanj\OneDrive\Escritorio\UNIVERSIDAD\2024-2\Herramientas de programacion 1\FinalHP\Nueva carpeta\FinalHP\FinalHP\FinalHP\FinalHP\obj\Debug\FinalHP.FormPersonas.resources

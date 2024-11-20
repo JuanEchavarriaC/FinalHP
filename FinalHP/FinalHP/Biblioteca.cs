@@ -128,7 +128,7 @@ namespace Biblioteca
         public static Persona FromCsv(string csvLine)
         {
             string[] values = csvLine.Split(',');
-            Rol rol = (Rol)Enum.Parse(typeof(Rol), values[2]); // Ajuste para versiones antiguas
+            Rol rol = (Rol)Enum.Parse(typeof(Rol), values[2]);
             return new Persona(values[1], values[0], rol)
             {
                 materialesPrestados = int.Parse(values[3])
@@ -136,15 +136,37 @@ namespace Biblioteca
         }
     }
 
+    public class Movimiento
+    {
+        public string Cedula { get; set; }
+        public string Nombre { get; set; }
+        public string Identificador { get; set; }
+        public string Titulo { get; set; }
+        public DateTime Fecha { get; set; }
+        public string Tipo { get; set; } // Préstamo o Devolución
+
+        public Movimiento(string cedula, string nombre, string identificador, string titulo, DateTime fecha, string tipo)
+        {
+            Cedula = cedula;
+            Nombre = nombre;
+            Identificador = identificador;
+            Titulo = titulo;
+            Fecha = fecha;
+            Tipo = tipo;
+        }
+    }
+
     public class Biblioteca
     {
         private Dictionary<string, Material> materiales;
         private Dictionary<string, Persona> personas;
+        private List<Movimiento> movimientos;
 
         public Biblioteca()
         {
             materiales = new Dictionary<string, Material>();
             personas = new Dictionary<string, Persona>();
+            movimientos = new List<Movimiento>();
         }
 
         public void AgregarMaterial(Material material)
@@ -182,6 +204,7 @@ namespace Biblioteca
 
             if (persona.RegistrarPrestamo() && material.Prestar())
             {
+                movimientos.Add(new Movimiento(cedula, persona.Nombre, identificador, material.Titulo, DateTime.Now, "Préstamo"));
                 Console.WriteLine($"Préstamo exitoso: {persona.Nombre} ha prestado {material.Titulo}.");
             }
             else
@@ -197,6 +220,7 @@ namespace Biblioteca
 
             persona.RegistrarDevolucion();
             material.Devolver();
+            movimientos.Add(new Movimiento(cedula, persona.Nombre, identificador, material.Titulo, DateTime.Now, "Devolución"));
             Console.WriteLine($"Devolución exitosa: {persona.Nombre} ha devuelto {material.Titulo}.");
         }
 
@@ -249,9 +273,28 @@ namespace Biblioteca
                 }
             }
         }
-    }
 
-    class Program
+        public List<Movimiento> ObtenerMovimientos()
+        {
+            return movimientos;
+        }
+
+        public List<Persona> ObtenerPersonas()
+        {
+            return new List<Persona>(personas.Values);
+        }
+
+        public List<Movimiento> ObtenerMovimientosPorPersona(string cedula)
+        {
+            return movimientos.FindAll(m => m.Cedula == cedula);
+        }
+
+        public List<Material> ObtenerLibros()
+        {
+            return new List<Material>(materiales.Values);
+        }
+    }
+        class Program
     {
         static void Main(string[] args)
         {
