@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\FinalHP\\Nueva carpeta\\FinalHP\\FinalHP\\FinalHP\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5C90FADD-691A-463D-9921-E723FFFFD2CA}|FinalHP\\FinalHP.csproj|c:\\users\\juanj\\onedrive\\escritorio\\universidad\\2024-2\\herramientas de programacion 1\\finalhp\\nueva carpeta\\finalhp\\finalhp\\finalhp\\finalhp\\biblioteca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C90FADD-691A-463D-9921-E723FFFFD2CA}|FinalHP\\FinalHP.csproj|solutionrelative:finalhp\\biblioteca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5C90FADD-691A-463D-9921-E723FFFFD2CA}|FinalHP\\FinalHP.csproj|C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\FinalHP\\Nueva carpeta\\FinalHP\\FinalHP\\FinalHP\\finalhp\\administracion de biblioteca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5C90FADD-691A-463D-9921-E723FFFFD2CA}|FinalHP\\FinalHP.csproj|solutionrelative:finalhp\\administracion de biblioteca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
@@ -15,7 +19,7 @@
       "RelativeMoniker": "D:0:0:{5C90FADD-691A-463D-9921-E723FFFFD2CA}|FinalHP\\FinalHP.csproj|solutionrelative:finalhp\\formlibros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C90FADD-691A-463D-9921-E723FFFFD2CA}|FinalHP\\FinalHP.csproj|c:\\users\\juanj\\onedrive\\escritorio\\universidad\\2024-2\\herramientas de programacion 1\\finalhp\\nueva carpeta\\finalhp\\finalhp\\finalhp\\finalhp\\formpersonas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{5C90FADD-691A-463D-9921-E723FFFFD2CA}|FinalHP\\FinalHP.csproj|C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\FinalHP\\Nueva carpeta\\FinalHP\\FinalHP\\FinalHP\\finalhp\\formpersonas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5C90FADD-691A-463D-9921-E723FFFFD2CA}|FinalHP\\FinalHP.csproj|solutionrelative:finalhp\\formpersonas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -29,10 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{5C90FADD-691A-463D-9921-E723FFFFD2CA}|FinalHP\\FinalHP.csproj|C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\FinalHP\\Nueva carpeta\\FinalHP\\FinalHP\\FinalHP\\finalhp\\formmovimientos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5C90FADD-691A-463D-9921-E723FFFFD2CA}|FinalHP\\FinalHP.csproj|solutionrelative:finalhp\\formmovimientos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C90FADD-691A-463D-9921-E723FFFFD2CA}|FinalHP\\FinalHP.csproj|C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\FinalHP\\Nueva carpeta\\FinalHP\\FinalHP\\FinalHP\\finalhp\\biblioteca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C90FADD-691A-463D-9921-E723FFFFD2CA}|FinalHP\\FinalHP.csproj|solutionrelative:finalhp\\biblioteca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,7 +50,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Administracion de biblioteca.cs",
               "DocumentMoniker": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\FinalHP\\Nueva carpeta\\FinalHP\\FinalHP\\FinalHP\\FinalHP\\Administracion de biblioteca.cs",
               "RelativeDocumentMoniker": "FinalHP\\Administracion de biblioteca.cs",
@@ -58,73 +58,68 @@
               "RelativeToolTip": "FinalHP\\Administracion de biblioteca.cs",
               "ViewState": "AgIAACIAAAAAAAAAAAAAwC8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T23:59:30.248Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-19T23:59:30.248Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "FormLibros.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\FinalHP\\Nueva carpeta\\FinalHP\\FinalHP\\FinalHP\\FinalHP\\FormLibros.cs",
               "RelativeDocumentMoniker": "FinalHP\\FormLibros.cs",
               "ToolTip": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\FinalHP\\Nueva carpeta\\FinalHP\\FinalHP\\FinalHP\\FinalHP\\FormLibros.cs [Dise\u00F1o]",
               "RelativeToolTip": "FinalHP\\FormLibros.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T00:09:54.591Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2024-11-20T00:09:54.591Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Administracion de biblioteca.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\FinalHP\\Nueva carpeta\\FinalHP\\FinalHP\\FinalHP\\FinalHP\\Administracion de biblioteca.cs",
               "RelativeDocumentMoniker": "FinalHP\\Administracion de biblioteca.cs",
               "ToolTip": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\FinalHP\\Nueva carpeta\\FinalHP\\FinalHP\\FinalHP\\FinalHP\\Administracion de biblioteca.cs [Dise\u00F1o]",
               "RelativeToolTip": "FinalHP\\Administracion de biblioteca.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T00:08:05.11Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2024-11-20T00:08:05.11Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "Biblioteca.cs",
               "DocumentMoniker": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\FinalHP\\Nueva carpeta\\FinalHP\\FinalHP\\FinalHP\\FinalHP\\Biblioteca.cs",
               "RelativeDocumentMoniker": "FinalHP\\Biblioteca.cs",
               "ToolTip": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\FinalHP\\Nueva carpeta\\FinalHP\\FinalHP\\FinalHP\\FinalHP\\Biblioteca.cs",
               "RelativeToolTip": "FinalHP\\Biblioteca.cs",
-              "ViewState": "AgIAAPIAAAAAAAAAAAAcwN4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACcBAAAAAAAAAAAIwDIBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-19T22:28:51.116Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "FormPersonas.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\FinalHP\\Nueva carpeta\\FinalHP\\FinalHP\\FinalHP\\FinalHP\\FormPersonas.cs",
               "RelativeDocumentMoniker": "FinalHP\\FormPersonas.cs",
               "ToolTip": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\FinalHP\\Nueva carpeta\\FinalHP\\FinalHP\\FinalHP\\FinalHP\\FormPersonas.cs [Dise\u00F1o]",
               "RelativeToolTip": "FinalHP\\FormPersonas.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T00:09:16.546Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2024-11-20T00:09:16.546Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "FormMovimientos.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\FinalHP\\Nueva carpeta\\FinalHP\\FinalHP\\FinalHP\\FinalHP\\FormMovimientos.cs",
               "RelativeDocumentMoniker": "FinalHP\\FormMovimientos.cs",
               "ToolTip": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\FinalHP\\Nueva carpeta\\FinalHP\\FinalHP\\FinalHP\\FinalHP\\FormMovimientos.cs [Dise\u00F1o]",
               "RelativeToolTip": "FinalHP\\FormMovimientos.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T00:04:50.328Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2024-11-20T00:04:50.328Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "FormLibros.cs",
               "DocumentMoniker": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\FinalHP\\Nueva carpeta\\FinalHP\\FinalHP\\FinalHP\\FinalHP\\FormLibros.cs",
               "RelativeDocumentMoniker": "FinalHP\\FormLibros.cs",
@@ -132,12 +127,11 @@
               "RelativeToolTip": "FinalHP\\FormLibros.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T00:19:05.096Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T00:19:05.096Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "FormPersonas.cs",
               "DocumentMoniker": "C:\\Users\\juanj\\OneDrive\\Escritorio\\UNIVERSIDAD\\2024-2\\Herramientas de programacion 1\\FinalHP\\Nueva carpeta\\FinalHP\\FinalHP\\FinalHP\\FinalHP\\FormPersonas.cs",
               "RelativeDocumentMoniker": "FinalHP\\FormPersonas.cs",
@@ -145,8 +139,7 @@
               "RelativeToolTip": "FinalHP\\FormPersonas.cs",
               "ViewState": "AgIAABsAAAAAAAAAAADwvykAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T00:11:23.67Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T00:11:23.67Z"
             }
           ]
         }

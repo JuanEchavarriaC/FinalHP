@@ -67,16 +67,56 @@ namespace Biblioteca
 
         public static Material FromCsv(string csvLine)
         {
-            string[] values = csvLine.Split(',');
-            return new Material(
-                values[0],
-                values[1],
-                DateTime.Parse(values[2]),
-                int.Parse(values[3])
-            )
+            try
             {
-                CantidadActual = int.Parse(values[4])
-            };
+                string[] values = csvLine.Split(',');
+
+                // Verificar que la línea tiene el número correcto de columnas
+                if (values.Length != 5)
+                {
+                    throw new FormatException("La línea CSV no contiene el número correcto de campos.");
+                }
+
+                // Intentar parsear la fecha con TryParseExact (puedes ajustar el formato según sea necesario)
+                string fechaString = values[2].Trim(); // Elimina espacios al principio o final
+                DateTime fechaRegistro;
+                string[] formatosFecha = { "yyyy-MM-dd", "dd/MM/yyyy", "MM/dd/yyyy" }; // Especificar posibles formatos de fecha
+
+                if (!DateTime.TryParseExact(fechaString, formatosFecha, null, System.Globalization.DateTimeStyles.None, out fechaRegistro))
+                {
+                    throw new FormatException($"El campo de fecha '{fechaString}' no tiene un formato válido.");
+                }
+
+                // Intentar parsear las cantidades
+                int cantidadRegistrada;
+                if (!int.TryParse(values[3], out cantidadRegistrada))
+                {
+                    throw new FormatException($"El campo de cantidad registrada '{values[3]}' no tiene un formato válido.");
+                }
+
+                int cantidadActual;
+                if (!int.TryParse(values[4], out cantidadActual))
+                {
+                    throw new FormatException($"El campo de cantidad actual '{values[4]}' no tiene un formato válido.");
+                }
+
+                // Crear y devolver el objeto Material
+                return new Material(
+                    values[0],
+                    values[1],
+                    fechaRegistro,
+                    cantidadRegistrada
+                )
+                {
+                    CantidadActual = cantidadActual
+                };
+            }
+            catch (FormatException ex)
+            {
+                // Mostrar un mensaje de error adecuado y manejar la excepción
+                Console.WriteLine($"Error al procesar la línea CSV: {ex.Message}");
+                return null;  // Retornar null en caso de error, para que puedas manejarlo posteriormente
+            }
         }
     }
 
@@ -269,13 +309,23 @@ namespace Biblioteca
         public void CargarMateriales(string filePath)
         {
             if (!File.Exists(filePath)) return;
+
             using (StreamReader reader = new StreamReader(filePath))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
                     Material material = Material.FromCsv(line);
-                    materiales[material.Identificador] = material;
+
+                    // Verificar si el material es null antes de agregarlo
+                    if (material != null)
+                    {
+                        materiales[material.Identificador] = material;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Error al procesar la línea CSV: La línea no pudo ser convertida a Material.");
+                    }
                 }
             }
         }
