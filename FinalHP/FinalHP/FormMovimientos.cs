@@ -23,9 +23,15 @@ namespace FinalHP
 
         private void CargarMovimientos()
         {
-            // Lógica para cargar los movimientos en el DataGridView
-            var movimientos = biblioteca.ObtenerMovimientos();
-            dgvMovimientos.DataSource = movimientos;
+            try
+            {
+                var movimientos = biblioteca.ObtenerMovimientos();
+                dgvMovimientos.DataSource = movimientos;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al cargar los movimientos: " + ex.Message);
+            }
         }
     }
 }

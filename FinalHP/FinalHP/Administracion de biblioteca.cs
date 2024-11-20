@@ -13,45 +13,44 @@ namespace FinalHP
 {
     public partial class Form1 : Form
     {
-        // Declarar la instancia de Biblioteca
         private Biblioteca.Biblioteca biblioteca;
 
         public Form1()
         {
             InitializeComponent();
-            // Inicializar la instancia de Biblioteca
             biblioteca = new Biblioteca.Biblioteca();
-            // Cargar datos desde archivos
             biblioteca.CargarMateriales("Materiales.txt");
             biblioteca.CargarPersonas("Personas.txt");
+            biblioteca.CargarMovimientos("Movimientos.txt");
         }
-
-
 
         private void btnAgregarMaterial_Click(object sender, EventArgs e)
         {
-            // Lógica para agregar material
-            string identificador = txtIdentificador.Text;
-            string titulo = txtTitulo.Text;
-            DateTime fechaRegistro = dtpFechaRegistro.Value;
-            int cantidadRegistrada = int.Parse(txtCantidadRegistrada.Text);
-            int cantidadActual = int.Parse(txtCantidadRegistrada.Text);
+            try
+            {
+                string identificador = txtIdentificador.Text;
+                string titulo = txtTitulo.Text;
+                DateTime fechaRegistro = dtpFechaRegistro.Value;
+                int cantidadRegistrada = int.Parse(txtCantidadRegistrada.Text);
+                int cantidadActual = int.Parse(txtCantidadRegistrada.Text);
 
-            Material material = new Material(identificador, titulo, fechaRegistro, cantidadRegistrada);
-            biblioteca.AgregarMaterial(material);
-            MessageBox.Show("Material agregado exitosamente.");
+                Material material = new Material(identificador, titulo, fechaRegistro, cantidadRegistrada);
+                biblioteca.AgregarMaterial(material);
+                MessageBox.Show("Material agregado exitosamente.");
 
-            // Actualizar los cuadros de texto para mostrar la cantidad
-            txtCantidadRegistrada.Text = cantidadRegistrada.ToString();
-            txtCantidadActual.Text = cantidadActual.ToString();
-            biblioteca.GuardarMateriales("Materiales.txt");
+                txtCantidadRegistrada.Text = cantidadRegistrada.ToString();
+                biblioteca.GuardarMateriales("Materiales.txt");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error al agregar el material: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnAgregarPersona_Click(object sender, EventArgs e)
         {
             try
             {
-                // Validar que se haya ingresado una cédula y un nombre
                 if (string.IsNullOrWhiteSpace(txtCedula.Text))
                 {
                     MessageBox.Show("Por favor, ingresa una cédula.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -64,23 +63,19 @@ namespace FinalHP
                     return;
                 }
 
-                // Validar que se haya seleccionado un rol
                 if (cmbRol.SelectedItem == null)
                 {
                     MessageBox.Show("Por favor, selecciona un rol.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                // Convertir el rol seleccionado
                 Rol rol = (Rol)Enum.Parse(typeof(Rol), cmbRol.SelectedItem.ToString());
 
-                // Crear y agregar la persona
                 string cedula = txtCedula.Text;
                 string nombre = txtNombre.Text;
                 Persona persona = new Persona(nombre, cedula, rol);
                 biblioteca.AgregarPersona(persona);
 
-                // Mostrar confirmación y guardar datos
                 MessageBox.Show("Persona agregada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 biblioteca.GuardarPersonas("Personas.txt");
             }
@@ -107,6 +102,7 @@ namespace FinalHP
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void btnRegistrarDevolucion_Click(object sender, EventArgs e)
         {
             string cedula = txtCedula.Text;
@@ -116,7 +112,7 @@ namespace FinalHP
             if (!TienePrestamos(cedula))
             {
                 MessageBox.Show("Este usuario no tiene préstamos activos. No puede realizar una devolución.");
-                return;  // No procede con la devolución si no tiene préstamos
+                return;
             }
 
             try
@@ -133,14 +129,13 @@ namespace FinalHP
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // Guardar datos en archivos al cerrar el formulario
             biblioteca.GuardarMateriales("Materiales.txt");
             biblioteca.GuardarPersonas("Personas.txt");
+            biblioteca.GuardarMovimientos("Movimientos.txt");
         }
 
         private void Administra_Load(object sender, EventArgs e)
         {
-
         }
 
         private void btnVerMovimientos_Click(object sender, EventArgs e)
@@ -242,7 +237,10 @@ namespace FinalHP
             }
         }
 
-
-
+        private bool TienePrestamos(string cedula)
+        {
+            var prestamosUsuario = biblioteca.ObtenerPrestamosPorCedula(cedula);
+            return prestamosUsuario.Any();
+        }
     }
 }

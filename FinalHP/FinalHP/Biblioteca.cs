@@ -14,7 +14,8 @@ namespace Biblioteca
         Profesor,
         Administrativo
     }
-        class Program
+
+    class Program
     {
         static void Main(string[] args)
         {
@@ -71,23 +72,20 @@ namespace Biblioteca
             {
                 string[] values = csvLine.Split(',');
 
-                // Verificar que la línea tiene el número correcto de columnas
                 if (values.Length != 5)
                 {
                     throw new FormatException("La línea CSV no contiene el número correcto de campos.");
                 }
 
-                // Intentar parsear la fecha con TryParseExact (puedes ajustar el formato según sea necesario)
-                string fechaString = values[2].Trim(); // Elimina espacios al principio o final
+                string fechaString = values[2].Trim();
                 DateTime fechaRegistro;
-                string[] formatosFecha = { "yyyy-MM-dd", "dd/MM/yyyy", "MM/dd/yyyy" }; // Especificar posibles formatos de fecha
+                string[] formatosFecha = { "yyyy-MM-dd", "dd/MM/yyyy", "MM/dd/yyyy" };
 
                 if (!DateTime.TryParseExact(fechaString, formatosFecha, null, System.Globalization.DateTimeStyles.None, out fechaRegistro))
                 {
                     throw new FormatException($"El campo de fecha '{fechaString}' no tiene un formato válido.");
                 }
 
-                // Intentar parsear las cantidades
                 int cantidadRegistrada;
                 if (!int.TryParse(values[3], out cantidadRegistrada))
                 {
@@ -100,7 +98,6 @@ namespace Biblioteca
                     throw new FormatException($"El campo de cantidad actual '{values[4]}' no tiene un formato válido.");
                 }
 
-                // Crear y devolver el objeto Material
                 return new Material(
                     values[0],
                     values[1],
@@ -113,9 +110,8 @@ namespace Biblioteca
             }
             catch (FormatException ex)
             {
-                // Mostrar un mensaje de error adecuado y manejar la excepción
                 Console.WriteLine($"Error al procesar la línea CSV: {ex.Message}");
-                return null;  // Retornar null en caso de error, para que puedas manejarlo posteriormente
+                return null;
             }
         }
     }
@@ -196,7 +192,7 @@ namespace Biblioteca
         public string Identificador { get; set; }
         public string Titulo { get; set; }
         public DateTime Fecha { get; set; }
-        public string Tipo { get; set; } // Préstamo o Devolución
+        public string Tipo { get; set; }
 
         public Movimiento(string cedula, string nombre, string identificador, string titulo, DateTime fecha, string tipo)
         {
@@ -222,6 +218,10 @@ namespace Biblioteca
             movimientos = new List<Movimiento>();
         }
 
+        public List<Movimiento> ObtenerPrestamosPorCedula(string cedula)
+        {
+            return movimientos.Where(m => m.Cedula == cedula && m.Tipo == "Préstamo").ToList();
+        }
         public void AgregarMaterial(Material material)
         {
             if (materiales.ContainsKey(material.Identificador))
@@ -237,7 +237,6 @@ namespace Biblioteca
                 MessageBox.Show("Material agregado exitosamente.", "Material Agregado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
 
         public void AgregarPersona(Persona persona)
         {
@@ -264,6 +263,7 @@ namespace Biblioteca
                 throw new Exception("La persona con la cédula especificada no existe.");
             }
         }
+
         public Material BuscarMaterial(string identificador)
         {
             if (materiales.TryGetValue(identificador, out Material material))
@@ -289,6 +289,8 @@ namespace Biblioteca
                 {
                     if (!persona.RegistrarPrestamo())
                         throw new Exception("Límite de préstamos alcanzado.");
+                    if (!material.Prestar())
+                        throw new Exception("No hay suficientes unidades disponibles para prestar.");
                 }
 
                 movimientos.Add(new Movimiento(cedula, persona.Nombre, identificador, material.Titulo, DateTime.Now, "Préstamo"));
@@ -305,9 +307,17 @@ namespace Biblioteca
             var persona = BuscarPersona(cedula);
             var material = BuscarMaterial(identificador);
 
+            var prestamosActivos = ObtenerPrestamosPorCedula(cedula).Count(m => m.Identificador == identificador);
+
+            if (prestamosActivos < cantidad)
+            {
+                throw new Exception("No se pueden devolver más materiales de los que se tienen prestados.");
+            }
+
             for (int i = 0; i < cantidad; i++)
             {
                 persona.RegistrarDevolucion();
+                material.Devolver();
             }
 
             movimientos.Add(new Movimiento(cedula, persona.Nombre, identificador, material.Titulo, DateTime.Now, "Devolución"));
@@ -324,8 +334,6 @@ namespace Biblioteca
                 while ((line = reader.ReadLine()) != null)
                 {
                     Material material = Material.FromCsv(line);
-
-                    // Verificar si el material es null antes de agregarlo
                     if (material != null)
                     {
                         materiales[material.Identificador] = material;
@@ -337,6 +345,7 @@ namespace Biblioteca
                 }
             }
         }
+
         public void GuardarMateriales(string filePath)
         {
             using (StreamWriter writer = new StreamWriter(filePath))
@@ -377,7 +386,32 @@ namespace Biblioteca
         {
             return movimientos;
         }
+        public void GuardarMovimientos(string filePath)
+        {
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                foreach (var movimiento in movimientos)
+                {
+                    writer.WriteLine($"{movimiento.Cedula},{movimiento.Nombre},{movimiento.Identificador},{movimiento.Titulo},{movimiento.Fecha},{movimiento.Tipo}");
+                }
+            }
+        }
 
+        public void CargarMovimientos(string filePath)
+        {
+            if (!File.Exists(filePath)) return;
+
+            using (StreamReader reader = new StreamReader(filePath))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    string[] values = line.Split(',');
+                    Movimiento movimiento = new Movimiento(values[0], values[1], values[2], values[3], DateTime.Parse(values[4]), values[5]);
+                    movimientos.Add(movimiento);
+                }
+            }
+        }
         public List<Persona> ObtenerPersonas()
         {
             return new List<Persona>(personas.Values);

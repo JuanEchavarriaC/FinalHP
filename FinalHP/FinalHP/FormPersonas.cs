@@ -23,9 +23,15 @@ namespace FinalHP
 
         private void CargarPersonas()
         {
-            // Lógica para cargar las personas en el DataGridView
-            var personas = biblioteca.ObtenerPersonas();
-            dgvPersonas.DataSource = personas;
+            try
+            {
+                var personas = biblioteca.ObtenerPersonas();
+                dgvPersonas.DataSource = personas;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al cargar las personas: " + ex.Message);
+            }
         }
 
         private void dgvPersonas_SelectionChanged(object sender, EventArgs e)
@@ -34,7 +40,6 @@ namespace FinalHP
             {
                 string cedula = dgvPersonas.SelectedRows[0].Cells["Cedula"].Value.ToString();
                 var movimientos = biblioteca.ObtenerMovimientosPorPersona(cedula);
-                dgvMovimientosPersona.DataSource = movimientos;
             }
         }
     }

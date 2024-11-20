@@ -42,13 +42,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.numCantidad = new System.Windows.Forms.NumericUpDown();
             this.btnConsultarLibro = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCantidadRegistrada = new System.Windows.Forms.TextBox();
-            this.txtCantidadActual = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnEliminarPersona = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -166,7 +164,6 @@
             // 
             this.groupBox1.Controls.Add(this.numCantidad);
             this.groupBox1.Controls.Add(this.btnConsultarLibro);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -176,7 +173,6 @@
             this.groupBox1.Controls.Add(this.txtTitulo);
             this.groupBox1.Controls.Add(this.dtpFechaRegistro);
             this.groupBox1.Controls.Add(this.txtCantidadRegistrada);
-            this.groupBox1.Controls.Add(this.txtCantidadActual);
             this.groupBox1.Location = new System.Drawing.Point(24, 59);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1114, 217);
@@ -201,23 +197,14 @@
             this.btnConsultarLibro.UseVisualStyleBackColor = true;
             this.btnConsultarLibro.Click += new System.EventHandler(this.btnConsultarLibro_Click);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(968, 131);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 16);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Cantidad actual";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(965, 55);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 16);
+            this.label4.Size = new System.Drawing.Size(123, 16);
             this.label4.TabIndex = 10;
-            this.label4.Text = "Cantidad registrada";
+            this.label4.Text = "Cantidad a agregar";
             // 
             // label3
             // 
@@ -252,13 +239,6 @@
             this.txtCantidadRegistrada.Name = "txtCantidadRegistrada";
             this.txtCantidadRegistrada.Size = new System.Drawing.Size(122, 22);
             this.txtCantidadRegistrada.TabIndex = 4;
-            // 
-            // txtCantidadActual
-            // 
-            this.txtCantidadActual.Location = new System.Drawing.Point(968, 153);
-            this.txtCantidadActual.Name = "txtCantidadActual";
-            this.txtCantidadActual.Size = new System.Drawing.Size(122, 22);
-            this.txtCantidadActual.TabIndex = 5;
             // 
             // groupBox2
             // 
@@ -410,10 +390,8 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnConsultarLibro;
         private System.Windows.Forms.NumericUpDown numCantidad;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtCantidadRegistrada;
-        private System.Windows.Forms.TextBox txtCantidadActual;
     }
 }
 
