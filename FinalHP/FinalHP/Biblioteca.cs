@@ -225,10 +225,19 @@ namespace Biblioteca
         public void AgregarMaterial(Material material)
         {
             if (materiales.ContainsKey(material.Identificador))
-                throw new Exception($"El material con identificador {material.Identificador} ya existe.");
-
-            materiales[material.Identificador] = material;
+            {
+                materiales[material.Identificador].CantidadRegistrada += material.CantidadRegistrada;
+                materiales[material.Identificador].CantidadActual += material.CantidadActual;
+                MessageBox.Show($"El material con identificador {material.Identificador} ya existe. Se han sumado las nuevas unidades al inventario.",
+                                "Material Actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                materiales[material.Identificador] = material;
+                MessageBox.Show("Material agregado exitosamente.", "Material Agregado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
+
 
         public void AgregarPersona(Persona persona)
         {
@@ -293,19 +302,9 @@ namespace Biblioteca
             persona.RegistrarDevolucion();
             material.Devolver();
             movimientos.Add(new Movimiento(cedula, persona.Nombre, identificador, material.Titulo, DateTime.Now, "Devolución"));
-            Console.WriteLine($"Devolución exitosa: {persona.Nombre} ha devuelto {material.Titulo}.");
+            MessageBox.Show($"Devolución exitosa: {persona.Nombre} ha devuelto {material.Titulo}.");
         }
 
-        public void GuardarMateriales(string filePath)
-        {
-            using (StreamWriter writer = new StreamWriter(filePath))
-            {
-                foreach (var material in materiales.Values)
-                {
-                    writer.WriteLine(material.ToCsv());
-                }
-            }
-        }
         public void CargarMateriales(string filePath)
         {
             if (!File.Exists(filePath)) return;
@@ -326,6 +325,16 @@ namespace Biblioteca
                     {
                         Console.WriteLine($"Error al procesar la línea CSV: La línea no pudo ser convertida a Material.");
                     }
+                }
+            }
+        }
+        public void GuardarMateriales(string filePath)
+        {
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                foreach (var material in materiales.Values)
+                {
+                    writer.WriteLine(material.ToCsv());
                 }
             }
         }

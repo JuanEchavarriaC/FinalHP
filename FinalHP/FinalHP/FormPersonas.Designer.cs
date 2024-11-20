@@ -41,24 +41,24 @@
             this.dgvPersonas.Name = "dgvPersonas";
             this.dgvPersonas.RowHeadersWidth = 51;
             this.dgvPersonas.RowTemplate.Height = 24;
-            this.dgvPersonas.Size = new System.Drawing.Size(1094, 347);
+            this.dgvPersonas.Size = new System.Drawing.Size(690, 271);
             this.dgvPersonas.TabIndex = 0;
             // 
             // dgvMovimientosPersona
             // 
             this.dgvMovimientosPersona.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMovimientosPersona.Location = new System.Drawing.Point(12, 375);
+            this.dgvMovimientosPersona.Location = new System.Drawing.Point(12, 300);
             this.dgvMovimientosPersona.Name = "dgvMovimientosPersona";
             this.dgvMovimientosPersona.RowHeadersWidth = 51;
             this.dgvMovimientosPersona.RowTemplate.Height = 24;
-            this.dgvMovimientosPersona.Size = new System.Drawing.Size(1094, 388);
+            this.dgvMovimientosPersona.Size = new System.Drawing.Size(690, 331);
             this.dgvMovimientosPersona.TabIndex = 1;
             // 
             // FormPersonas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1118, 775);
+            this.ClientSize = new System.Drawing.Size(714, 640);
             this.Controls.Add(this.dgvMovimientosPersona);
             this.Controls.Add(this.dgvPersonas);
             this.Name = "FormPersonas";

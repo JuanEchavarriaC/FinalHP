@@ -35,7 +35,7 @@ namespace FinalHP
             string titulo = txtTitulo.Text;
             DateTime fechaRegistro = dtpFechaRegistro.Value;
             int cantidadRegistrada = int.Parse(txtCantidadRegistrada.Text);
-            int cantidadActual = int.Parse(txtCantidadActual.Text);
+            int cantidadActual = int.Parse(txtCantidadRegistrada.Text);
 
             Material material = new Material(identificador, titulo, fechaRegistro, cantidadRegistrada);
             biblioteca.AgregarMaterial(material);
@@ -49,16 +49,47 @@ namespace FinalHP
 
         private void btnAgregarPersona_Click(object sender, EventArgs e)
         {
-            // Lógica para agregar persona
-            string cedula = txtCedula.Text;
-            string nombre = txtNombre.Text;
-            Rol rol = (Rol)Enum.Parse(typeof(Rol), cmbRol.SelectedItem.ToString());
+            try
+            {
+                // Validar que se haya ingresado una cédula y un nombre
+                if (string.IsNullOrWhiteSpace(txtCedula.Text))
+                {
+                    MessageBox.Show("Por favor, ingresa una cédula.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-            Persona persona = new Persona(nombre, cedula, rol);
-            biblioteca.AgregarPersona(persona);
-            MessageBox.Show("Persona agregada exitosamente.");
-            biblioteca.GuardarPersonas("Personas.txt");
+                if (string.IsNullOrWhiteSpace(txtNombre.Text))
+                {
+                    MessageBox.Show("Por favor, ingresa un nombre.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Validar que se haya seleccionado un rol
+                if (cmbRol.SelectedItem == null)
+                {
+                    MessageBox.Show("Por favor, selecciona un rol.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Convertir el rol seleccionado
+                Rol rol = (Rol)Enum.Parse(typeof(Rol), cmbRol.SelectedItem.ToString());
+
+                // Crear y agregar la persona
+                string cedula = txtCedula.Text;
+                string nombre = txtNombre.Text;
+                Persona persona = new Persona(nombre, cedula, rol);
+                biblioteca.AgregarPersona(persona);
+
+                // Mostrar confirmación y guardar datos
+                MessageBox.Show("Persona agregada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                biblioteca.GuardarPersonas("Personas.txt");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error al agregar la persona: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
         private void btnRegistrarPrestamo_Click(object sender, EventArgs e)
         {
             // Lógica para registrar préstamo
@@ -149,7 +180,57 @@ namespace FinalHP
 
         private void btnConsultarLibro_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                string identificador = txtIdentificador.Text;
+                var material = biblioteca.BuscarMaterial(identificador);
+                MessageBox.Show($"Título: {material.Titulo}\nCantidad Actual: {material.CantidadActual}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+
+        private void txtIdentificador_TextChanged(object sender, EventArgs e)
+        {
+            if (!int.TryParse(txtIdentificador.Text, out _))
+            {
+                MessageBox.Show("Por favor, ingrese solo números enteros en el Identificador.");
+                txtIdentificador.Clear();
+            }
+        }
+
+        private bool bloqueandoEvento = false;
+
+        private void txtCedula_TextChanged(object sender, EventArgs e)
+        {
+            if (bloqueandoEvento) return;
+
+            string textoActual = txtCedula.Text;
+
+            if (string.IsNullOrWhiteSpace(textoActual))
+                return;
+
+            if (textoActual.Length > 15)
+            {
+                bloqueandoEvento = true;
+                MessageBox.Show("La cédula no puede tener más de 15 dígitos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtCedula.Clear();
+                bloqueandoEvento = false;
+                return;
+            }
+
+            if (!decimal.TryParse(textoActual, out _))
+            {
+                bloqueandoEvento = true;
+                MessageBox.Show("Por favor, ingrese solo números enteros en la Cédula.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtCedula.Clear();
+                bloqueandoEvento = false;
+            }
+        }
+
+
+
     }
 }

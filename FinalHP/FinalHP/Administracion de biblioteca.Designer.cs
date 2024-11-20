@@ -40,7 +40,7 @@
             this.btnRegistrarPrestamo = new System.Windows.Forms.Button();
             this.btnRegistrarDevolucion = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numCantidad = new System.Windows.Forms.NumericUpDown();
             this.btnConsultarLibro = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -59,7 +59,7 @@
             this.btnVerLibros = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,6 +79,7 @@
             this.txtIdentificador.Name = "txtIdentificador";
             this.txtIdentificador.Size = new System.Drawing.Size(189, 22);
             this.txtIdentificador.TabIndex = 1;
+            this.txtIdentificador.TextChanged += new System.EventHandler(this.txtIdentificador_TextChanged);
             // 
             // txtTitulo
             // 
@@ -91,7 +92,7 @@
             // 
             this.dtpFechaRegistro.Location = new System.Drawing.Point(451, 60);
             this.dtpFechaRegistro.Name = "dtpFechaRegistro";
-            this.dtpFechaRegistro.Size = new System.Drawing.Size(253, 22);
+            this.dtpFechaRegistro.Size = new System.Drawing.Size(273, 22);
             this.dtpFechaRegistro.TabIndex = 3;
             // 
             // btnAgregarMaterial
@@ -110,6 +111,7 @@
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(148, 22);
             this.txtCedula.TabIndex = 7;
+            this.txtCedula.TextChanged += new System.EventHandler(this.txtCedula_TextChanged);
             // 
             // txtNombre
             // 
@@ -162,7 +164,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.numericUpDown1);
+            this.groupBox1.Controls.Add(this.numCantidad);
             this.groupBox1.Controls.Add(this.btnConsultarLibro);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
@@ -182,12 +184,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Material";
             // 
-            // numericUpDown1
+            // numCantidad
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(735, 60);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDown1.TabIndex = 14;
+            this.numCantidad.Location = new System.Drawing.Point(765, 60);
+            this.numCantidad.Name = "numCantidad";
+            this.numCantidad.Size = new System.Drawing.Size(120, 22);
+            this.numCantidad.TabIndex = 14;
             // 
             // btnConsultarLibro
             // 
@@ -372,7 +374,7 @@
             this.Load += new System.EventHandler(this.Administra_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -407,7 +409,7 @@
         private System.Windows.Forms.Button btnEliminarPersona;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnConsultarLibro;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numCantidad;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtCantidadRegistrada;
