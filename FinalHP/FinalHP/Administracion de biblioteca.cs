@@ -44,6 +44,7 @@ namespace FinalHP
             // Actualizar los cuadros de texto para mostrar la cantidad
             txtCantidadRegistrada.Text = cantidadRegistrada.ToString();
             txtCantidadActual.Text = cantidadActual.ToString();
+            biblioteca.GuardarMateriales("Materiales.txt");
         }
 
         private void btnAgregarPersona_Click(object sender, EventArgs e)
@@ -56,6 +57,7 @@ namespace FinalHP
             Persona persona = new Persona(nombre, cedula, rol);
             biblioteca.AgregarPersona(persona);
             MessageBox.Show("Persona agregada exitosamente.");
+            biblioteca.GuardarPersonas("Personas.txt");
         }
         private void btnRegistrarPrestamo_Click(object sender, EventArgs e)
         {
@@ -69,6 +71,7 @@ namespace FinalHP
             // Actualizar el cuadro de texto para mostrar la cantidad actual
             Material material = biblioteca.BuscarMaterial(identificador);
             txtCantidadActual.Text = material.CantidadActual.ToString();
+            biblioteca.GuardarMateriales("Materiales.txt");
         }
         private void btnRegistrarDevolucion_Click(object sender, EventArgs e)
         {
@@ -82,6 +85,7 @@ namespace FinalHP
             // Actualizar el cuadro de texto para mostrar la cantidad actual
             Material material = biblioteca.BuscarMaterial(identificador);
             txtCantidadActual.Text = material.CantidadActual.ToString();
+            biblioteca.GuardarMateriales("Materiales.txt");
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -126,6 +130,7 @@ namespace FinalHP
             {
                 MessageBox.Show(ex.Message);
             }
+            biblioteca.GuardarPersonas("Personas.txt");
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -140,6 +145,11 @@ namespace FinalHP
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnConsultarLibro_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

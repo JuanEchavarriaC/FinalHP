@@ -226,6 +226,7 @@ namespace Biblioteca
         {
             if (materiales.ContainsKey(material.Identificador))
                 throw new Exception($"El material con identificador {material.Identificador} ya existe.");
+
             materiales[material.Identificador] = material;
         }
 
@@ -305,7 +306,6 @@ namespace Biblioteca
                 }
             }
         }
-
         public void CargarMateriales(string filePath)
         {
             if (!File.Exists(filePath)) return;

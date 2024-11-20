@@ -40,27 +40,27 @@
             this.btnRegistrarPrestamo = new System.Windows.Forms.Button();
             this.btnRegistrarDevolucion = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.btnConsultarLibro = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtCantidadRegistrada = new System.Windows.Forms.TextBox();
+            this.txtCantidadActual = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnEliminarPersona = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnVerMovimientos = new System.Windows.Forms.Button();
             this.btnVerPersonas = new System.Windows.Forms.Button();
             this.btnVerLibros = new System.Windows.Forms.Button();
-            this.btnEliminarPersona = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnConsultarLibro = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.txtCantidadActual = new System.Windows.Forms.TextBox();
-            this.txtCantidadRegistrada = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -182,6 +182,41 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Material";
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(735, 60);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDown1.TabIndex = 14;
+            // 
+            // btnConsultarLibro
+            // 
+            this.btnConsultarLibro.Location = new System.Drawing.Point(251, 135);
+            this.btnConsultarLibro.Name = "btnConsultarLibro";
+            this.btnConsultarLibro.Size = new System.Drawing.Size(140, 36);
+            this.btnConsultarLibro.TabIndex = 13;
+            this.btnConsultarLibro.Text = "Consultar";
+            this.btnConsultarLibro.UseVisualStyleBackColor = true;
+            this.btnConsultarLibro.Click += new System.EventHandler(this.btnConsultarLibro_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(968, 131);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(100, 16);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Cantidad actual";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(965, 55);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(125, 16);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Cantidad registrada";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -209,6 +244,20 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "ID del Material";
             // 
+            // txtCantidadRegistrada
+            // 
+            this.txtCantidadRegistrada.Location = new System.Drawing.Point(968, 78);
+            this.txtCantidadRegistrada.Name = "txtCantidadRegistrada";
+            this.txtCantidadRegistrada.Size = new System.Drawing.Size(122, 22);
+            this.txtCantidadRegistrada.TabIndex = 4;
+            // 
+            // txtCantidadActual
+            // 
+            this.txtCantidadActual.Location = new System.Drawing.Point(968, 153);
+            this.txtCantidadActual.Name = "txtCantidadActual";
+            this.txtCantidadActual.Size = new System.Drawing.Size(122, 22);
+            this.txtCantidadActual.TabIndex = 5;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnEliminarPersona);
@@ -227,6 +276,16 @@
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Persona";
+            // 
+            // btnEliminarPersona
+            // 
+            this.btnEliminarPersona.Location = new System.Drawing.Point(17, 183);
+            this.btnEliminarPersona.Name = "btnEliminarPersona";
+            this.btnEliminarPersona.Size = new System.Drawing.Size(148, 36);
+            this.btnEliminarPersona.TabIndex = 16;
+            this.btnEliminarPersona.Text = "Eliminar persona";
+            this.btnEliminarPersona.UseVisualStyleBackColor = true;
+            this.btnEliminarPersona.Click += new System.EventHandler(this.btnEliminarPersona_Click);
             // 
             // label8
             // 
@@ -285,16 +344,6 @@
             this.btnVerLibros.UseVisualStyleBackColor = true;
             this.btnVerLibros.Click += new System.EventHandler(this.btnVerLibros_Click);
             // 
-            // btnEliminarPersona
-            // 
-            this.btnEliminarPersona.Location = new System.Drawing.Point(17, 183);
-            this.btnEliminarPersona.Name = "btnEliminarPersona";
-            this.btnEliminarPersona.Size = new System.Drawing.Size(148, 36);
-            this.btnEliminarPersona.TabIndex = 16;
-            this.btnEliminarPersona.Text = "Eliminar persona";
-            this.btnEliminarPersona.UseVisualStyleBackColor = true;
-            this.btnEliminarPersona.Click += new System.EventHandler(this.btnEliminarPersona_Click);
-            // 
             // btnGuardar
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -305,54 +354,6 @@
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // btnConsultarLibro
-            // 
-            this.btnConsultarLibro.Location = new System.Drawing.Point(251, 135);
-            this.btnConsultarLibro.Name = "btnConsultarLibro";
-            this.btnConsultarLibro.Size = new System.Drawing.Size(140, 36);
-            this.btnConsultarLibro.TabIndex = 13;
-            this.btnConsultarLibro.Text = "Consultar";
-            this.btnConsultarLibro.UseVisualStyleBackColor = true;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(735, 60);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDown1.TabIndex = 14;
-            // 
-            // txtCantidadActual
-            // 
-            this.txtCantidadActual.Location = new System.Drawing.Point(968, 153);
-            this.txtCantidadActual.Name = "txtCantidadActual";
-            this.txtCantidadActual.Size = new System.Drawing.Size(122, 22);
-            this.txtCantidadActual.TabIndex = 5;
-            // 
-            // txtCantidadRegistrada
-            // 
-            this.txtCantidadRegistrada.Location = new System.Drawing.Point(968, 78);
-            this.txtCantidadRegistrada.Name = "txtCantidadRegistrada";
-            this.txtCantidadRegistrada.Size = new System.Drawing.Size(122, 22);
-            this.txtCantidadRegistrada.TabIndex = 4;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(965, 55);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 16);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Cantidad registrada";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(968, 131);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 16);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Cantidad actual";
             // 
             // Form1
             // 
@@ -371,9 +372,9 @@
             this.Load += new System.EventHandler(this.Administra_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
