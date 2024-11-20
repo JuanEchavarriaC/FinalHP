@@ -32,8 +32,6 @@
             this.txtIdentificador = new System.Windows.Forms.TextBox();
             this.txtTitulo = new System.Windows.Forms.TextBox();
             this.dtpFechaRegistro = new System.Windows.Forms.DateTimePicker();
-            this.txtCantidadRegistrada = new System.Windows.Forms.TextBox();
-            this.txtCantidadActual = new System.Windows.Forms.TextBox();
             this.btnAgregarMaterial = new System.Windows.Forms.Button();
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -42,8 +40,6 @@
             this.btnRegistrarPrestamo = new System.Windows.Forms.Button();
             this.btnRegistrarDevolucion = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,8 +50,17 @@
             this.btnVerMovimientos = new System.Windows.Forms.Button();
             this.btnVerPersonas = new System.Windows.Forms.Button();
             this.btnVerLibros = new System.Windows.Forms.Button();
+            this.btnEliminarPersona = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnConsultarLibro = new System.Windows.Forms.Button();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.txtCantidadActual = new System.Windows.Forms.TextBox();
+            this.txtCantidadRegistrada = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -88,20 +93,6 @@
             this.dtpFechaRegistro.Name = "dtpFechaRegistro";
             this.dtpFechaRegistro.Size = new System.Drawing.Size(253, 22);
             this.dtpFechaRegistro.TabIndex = 3;
-            // 
-            // txtCantidadRegistrada
-            // 
-            this.txtCantidadRegistrada.Location = new System.Drawing.Point(736, 60);
-            this.txtCantidadRegistrada.Name = "txtCantidadRegistrada";
-            this.txtCantidadRegistrada.Size = new System.Drawing.Size(122, 22);
-            this.txtCantidadRegistrada.TabIndex = 4;
-            // 
-            // txtCantidadActual
-            // 
-            this.txtCantidadActual.Location = new System.Drawing.Point(736, 135);
-            this.txtCantidadActual.Name = "txtCantidadActual";
-            this.txtCantidadActual.Size = new System.Drawing.Size(122, 22);
-            this.txtCantidadActual.TabIndex = 5;
             // 
             // btnAgregarMaterial
             // 
@@ -143,7 +134,7 @@
             // 
             this.btnAgregarPersona.Location = new System.Drawing.Point(15, 124);
             this.btnAgregarPersona.Name = "btnAgregarPersona";
-            this.btnAgregarPersona.Size = new System.Drawing.Size(148, 30);
+            this.btnAgregarPersona.Size = new System.Drawing.Size(150, 36);
             this.btnAgregarPersona.TabIndex = 10;
             this.btnAgregarPersona.Text = "Agregar Persona";
             this.btnAgregarPersona.UseVisualStyleBackColor = true;
@@ -151,9 +142,9 @@
             // 
             // btnRegistrarPrestamo
             // 
-            this.btnRegistrarPrestamo.Location = new System.Drawing.Point(198, 124);
+            this.btnRegistrarPrestamo.Location = new System.Drawing.Point(334, 124);
             this.btnRegistrarPrestamo.Name = "btnRegistrarPrestamo";
-            this.btnRegistrarPrestamo.Size = new System.Drawing.Size(153, 30);
+            this.btnRegistrarPrestamo.Size = new System.Drawing.Size(166, 36);
             this.btnRegistrarPrestamo.TabIndex = 11;
             this.btnRegistrarPrestamo.Text = "Registrar Préstamo";
             this.btnRegistrarPrestamo.UseVisualStyleBackColor = true;
@@ -161,9 +152,9 @@
             // 
             // btnRegistrarDevolucion
             // 
-            this.btnRegistrarDevolucion.Location = new System.Drawing.Point(380, 121);
+            this.btnRegistrarDevolucion.Location = new System.Drawing.Point(334, 183);
             this.btnRegistrarDevolucion.Name = "btnRegistrarDevolucion";
-            this.btnRegistrarDevolucion.Size = new System.Drawing.Size(166, 33);
+            this.btnRegistrarDevolucion.Size = new System.Drawing.Size(166, 36);
             this.btnRegistrarDevolucion.TabIndex = 12;
             this.btnRegistrarDevolucion.Text = "Registrar Devolución";
             this.btnRegistrarDevolucion.UseVisualStyleBackColor = true;
@@ -171,6 +162,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.numericUpDown1);
+            this.groupBox1.Controls.Add(this.btnConsultarLibro);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
@@ -184,28 +177,10 @@
             this.groupBox1.Controls.Add(this.txtCantidadActual);
             this.groupBox1.Location = new System.Drawing.Point(24, 59);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(946, 200);
+            this.groupBox1.Size = new System.Drawing.Size(1114, 217);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Material";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(736, 113);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 16);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Cantidad actual";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(733, 37);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 16);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Cantidad registrada";
             // 
             // label3
             // 
@@ -236,6 +211,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnEliminarPersona);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
@@ -247,7 +223,7 @@
             this.groupBox2.Controls.Add(this.btnAgregarPersona);
             this.groupBox2.Location = new System.Drawing.Point(24, 296);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(946, 200);
+            this.groupBox2.Size = new System.Drawing.Size(1114, 252);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Persona";
@@ -281,7 +257,7 @@
             // 
             // btnVerMovimientos
             // 
-            this.btnVerMovimientos.Location = new System.Drawing.Point(24, 520);
+            this.btnVerMovimientos.Location = new System.Drawing.Point(24, 554);
             this.btnVerMovimientos.Name = "btnVerMovimientos";
             this.btnVerMovimientos.Size = new System.Drawing.Size(149, 46);
             this.btnVerMovimientos.TabIndex = 15;
@@ -291,7 +267,7 @@
             // 
             // btnVerPersonas
             // 
-            this.btnVerPersonas.Location = new System.Drawing.Point(250, 520);
+            this.btnVerPersonas.Location = new System.Drawing.Point(250, 554);
             this.btnVerPersonas.Name = "btnVerPersonas";
             this.btnVerPersonas.Size = new System.Drawing.Size(135, 46);
             this.btnVerPersonas.TabIndex = 16;
@@ -301,7 +277,7 @@
             // 
             // btnVerLibros
             // 
-            this.btnVerLibros.Location = new System.Drawing.Point(475, 522);
+            this.btnVerLibros.Location = new System.Drawing.Point(475, 556);
             this.btnVerLibros.Name = "btnVerLibros";
             this.btnVerLibros.Size = new System.Drawing.Size(159, 43);
             this.btnVerLibros.TabIndex = 17;
@@ -309,11 +285,81 @@
             this.btnVerLibros.UseVisualStyleBackColor = true;
             this.btnVerLibros.Click += new System.EventHandler(this.btnVerLibros_Click);
             // 
+            // btnEliminarPersona
+            // 
+            this.btnEliminarPersona.Location = new System.Drawing.Point(17, 183);
+            this.btnEliminarPersona.Name = "btnEliminarPersona";
+            this.btnEliminarPersona.Size = new System.Drawing.Size(148, 36);
+            this.btnEliminarPersona.TabIndex = 16;
+            this.btnEliminarPersona.Text = "Eliminar persona";
+            this.btnEliminarPersona.UseVisualStyleBackColor = true;
+            this.btnEliminarPersona.Click += new System.EventHandler(this.btnEliminarPersona_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Location = new System.Drawing.Point(657, 13);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(185, 43);
+            this.btnGuardar.TabIndex = 18;
+            this.btnGuardar.Text = "GUARDAR";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // btnConsultarLibro
+            // 
+            this.btnConsultarLibro.Location = new System.Drawing.Point(251, 135);
+            this.btnConsultarLibro.Name = "btnConsultarLibro";
+            this.btnConsultarLibro.Size = new System.Drawing.Size(140, 36);
+            this.btnConsultarLibro.TabIndex = 13;
+            this.btnConsultarLibro.Text = "Consultar";
+            this.btnConsultarLibro.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(735, 60);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDown1.TabIndex = 14;
+            // 
+            // txtCantidadActual
+            // 
+            this.txtCantidadActual.Location = new System.Drawing.Point(968, 153);
+            this.txtCantidadActual.Name = "txtCantidadActual";
+            this.txtCantidadActual.Size = new System.Drawing.Size(122, 22);
+            this.txtCantidadActual.TabIndex = 5;
+            // 
+            // txtCantidadRegistrada
+            // 
+            this.txtCantidadRegistrada.Location = new System.Drawing.Point(968, 78);
+            this.txtCantidadRegistrada.Name = "txtCantidadRegistrada";
+            this.txtCantidadRegistrada.Size = new System.Drawing.Size(122, 22);
+            this.txtCantidadRegistrada.TabIndex = 4;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(965, 55);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(125, 16);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Cantidad registrada";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(968, 131);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(100, 16);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Cantidad actual";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1006, 810);
+            this.ClientSize = new System.Drawing.Size(1150, 813);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnVerLibros);
             this.Controls.Add(this.btnVerPersonas);
             this.Controls.Add(this.btnVerMovimientos);
@@ -327,6 +373,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,8 +385,6 @@
         private System.Windows.Forms.TextBox txtIdentificador;
         private System.Windows.Forms.TextBox txtTitulo;
         private System.Windows.Forms.DateTimePicker dtpFechaRegistro;
-        private System.Windows.Forms.TextBox txtCantidadRegistrada;
-        private System.Windows.Forms.TextBox txtCantidadActual;
         private System.Windows.Forms.Button btnAgregarMaterial;
         private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.TextBox txtNombre;
@@ -349,8 +394,6 @@
         private System.Windows.Forms.Button btnRegistrarDevolucion;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -360,6 +403,14 @@
         private System.Windows.Forms.Button btnVerMovimientos;
         private System.Windows.Forms.Button btnVerPersonas;
         private System.Windows.Forms.Button btnVerLibros;
+        private System.Windows.Forms.Button btnEliminarPersona;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnConsultarLibro;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtCantidadRegistrada;
+        private System.Windows.Forms.TextBox txtCantidadActual;
     }
 }
 

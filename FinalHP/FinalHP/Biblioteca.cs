@@ -14,6 +14,19 @@ namespace Biblioteca
         Profesor,
         Administrativo
     }
+        class Program
+    {
+        static void Main(string[] args)
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());
+            Biblioteca biblioteca = new Biblioteca();
+
+            biblioteca.CargarMateriales("Materiales.txt");
+            biblioteca.CargarPersonas("Personas.txt");
+        }
+    }
 
     public class Material
     {
@@ -72,7 +85,7 @@ namespace Biblioteca
         public string Nombre { get; set; }
         public string Cedula { get; set; }
         public Rol RolPersona { get; set; }
-        private int materialesPrestados;
+        public int materialesPrestados;
 
         public Persona(string nombre, string cedula, Rol rolPersona)
         {
@@ -183,6 +196,24 @@ namespace Biblioteca
             personas[persona.Cedula] = persona;
         }
 
+        public void EliminarPersona(string cedula)
+        {
+            if (personas.ContainsKey(cedula))
+            {
+                if (personas[cedula].materialesPrestados == 0)
+                {
+                    personas.Remove(cedula);
+                }
+                else
+                {
+                    throw new Exception("No se puede eliminar la persona porque tiene materiales prestados.");
+                }
+            }
+            else
+            {
+                throw new Exception("La persona con la cédula especificada no existe.");
+            }
+        }
         public Material BuscarMaterial(string identificador)
         {
             if (materiales.TryGetValue(identificador, out Material material))
@@ -292,35 +323,6 @@ namespace Biblioteca
         public List<Material> ObtenerLibros()
         {
             return new List<Material>(materiales.Values);
-        }
-    }
-        class Program
-    {
-        static void Main(string[] args)
-        {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
-            Biblioteca biblioteca = new Biblioteca();
-
-            biblioteca.CargarMateriales("Materiales.txt");
-            biblioteca.CargarPersonas("Personas.txt");
-
-            try
-            {
-                biblioteca.AgregarMaterial(new Material("001", "C# Programming", DateTime.Now, 10));
-                biblioteca.AgregarPersona(new Persona("Juan Perez", "123456789", Rol.Estudiante));
-
-                biblioteca.RegistrarPrestamo("123456789", "001");
-                biblioteca.RegistrarDevolucion("123456789", "001");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-            biblioteca.GuardarMateriales("Materiales.txt");
-            biblioteca.GuardarPersonas("Personas.txt");
         }
     }
 }

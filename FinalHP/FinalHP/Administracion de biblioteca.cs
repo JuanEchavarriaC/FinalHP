@@ -113,5 +113,33 @@ namespace FinalHP
             FormLibros formLibros = new FormLibros(biblioteca);
             formLibros.Show();
         }
+
+        private void btnEliminarPersona_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string cedula = txtCedula.Text;
+                biblioteca.EliminarPersona(cedula);
+                MessageBox.Show("Persona eliminada exitosamente.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                biblioteca.GuardarMateriales("Materiales.txt");
+                biblioteca.GuardarPersonas("Personas.txt");
+                MessageBox.Show("Datos guardados exitosamente.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
