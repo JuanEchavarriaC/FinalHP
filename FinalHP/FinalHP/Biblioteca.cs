@@ -278,31 +278,40 @@ namespace Biblioteca
             throw new Exception($"La persona con cédula {cedula} no está registrada.");
         }
 
-        public void RegistrarPrestamo(string cedula, string identificador)
+        public void RegistrarPrestamo(string cedula, string identificador, int cantidad)
         {
             var persona = BuscarPersona(cedula);
             var material = BuscarMaterial(identificador);
 
-            if (persona.RegistrarPrestamo() && material.Prestar())
+            if (persona.PuedePrestar() && cantidad > 0)
             {
+                for (int i = 0; i < cantidad; i++)
+                {
+                    if (!persona.RegistrarPrestamo())
+                        throw new Exception("Límite de préstamos alcanzado.");
+                }
+
                 movimientos.Add(new Movimiento(cedula, persona.Nombre, identificador, material.Titulo, DateTime.Now, "Préstamo"));
-                Console.WriteLine($"Préstamo exitoso: {persona.Nombre} ha prestado {material.Titulo}.");
+                MessageBox.Show($"Préstamo exitoso: {cantidad} unidad(es) de {material.Titulo} prestada(s).");
             }
             else
             {
-                throw new Exception($"Préstamo no permitido: Verifique la disponibilidad o el límite de préstamos.");
+                throw new Exception("Préstamo no permitido: Verifique la cantidad ingresada o el límite de préstamos.");
             }
         }
 
-        public void RegistrarDevolucion(string cedula, string identificador)
+        public void RegistrarDevolucion(string cedula, string identificador, int cantidad)
         {
             var persona = BuscarPersona(cedula);
             var material = BuscarMaterial(identificador);
 
-            persona.RegistrarDevolucion();
-            material.Devolver();
+            for (int i = 0; i < cantidad; i++)
+            {
+                persona.RegistrarDevolucion();
+            }
+
             movimientos.Add(new Movimiento(cedula, persona.Nombre, identificador, material.Titulo, DateTime.Now, "Devolución"));
-            MessageBox.Show($"Devolución exitosa: {persona.Nombre} ha devuelto {material.Titulo}.");
+            MessageBox.Show($"Devolución exitosa: {cantidad} unidad(es) de {material.Titulo} devuelta(s).");
         }
 
         public void CargarMateriales(string filePath)

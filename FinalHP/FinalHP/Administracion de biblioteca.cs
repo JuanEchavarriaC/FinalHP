@@ -92,31 +92,43 @@ namespace FinalHP
 
         private void btnRegistrarPrestamo_Click(object sender, EventArgs e)
         {
-            // Lógica para registrar préstamo
             string cedula = txtCedula.Text;
             string identificador = txtIdentificador.Text;
+            int cantidad = (int)numCantidad.Value;
 
-            biblioteca.RegistrarPrestamo(cedula, identificador);
-            MessageBox.Show("Préstamo registrado exitosamente.");
-
-            // Actualizar el cuadro de texto para mostrar la cantidad actual
-            Material material = biblioteca.BuscarMaterial(identificador);
-            txtCantidadActual.Text = material.CantidadActual.ToString();
-            biblioteca.GuardarMateriales("Materiales.txt");
+            try
+            {
+                biblioteca.RegistrarPrestamo(cedula, identificador, cantidad);
+                biblioteca.GuardarPersonas("Personas.txt");
+                MessageBox.Show("Préstamo registrado con éxito.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void btnRegistrarDevolucion_Click(object sender, EventArgs e)
         {
-            // Lógica para registrar devolución
             string cedula = txtCedula.Text;
             string identificador = txtIdentificador.Text;
+            int cantidad = (int)numCantidad.Value;
 
-            biblioteca.RegistrarDevolucion(cedula, identificador);
-            MessageBox.Show("Devolución registrada exitosamente.");
+            if (!TienePrestamos(cedula))
+            {
+                MessageBox.Show("Este usuario no tiene préstamos activos. No puede realizar una devolución.");
+                return;  // No procede con la devolución si no tiene préstamos
+            }
 
-            // Actualizar el cuadro de texto para mostrar la cantidad actual
-            Material material = biblioteca.BuscarMaterial(identificador);
-            txtCantidadActual.Text = material.CantidadActual.ToString();
-            biblioteca.GuardarMateriales("Materiales.txt");
+            try
+            {
+                biblioteca.RegistrarDevolucion(cedula, identificador, cantidad);
+                biblioteca.GuardarPersonas("Personas.txt");
+                MessageBox.Show("Devolución registrada con éxito.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

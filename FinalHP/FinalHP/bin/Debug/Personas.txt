@@ -1,4 +1,3 @@
 1013458078,Julian Cardona Atehortua,Estudiante,0
 1000645517,Juan Jose Echavarria Castaño,Estudiante,0
-001,Pepito Perez,Estudiante,3
 002,Fulanito,Profesor,0
